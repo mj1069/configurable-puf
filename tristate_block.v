@@ -17,7 +17,8 @@ module tristate_block (#parameter N = 32)(
   generate
   genvar i;
     for (i = 0; i < N; i = i + 3) begin: block
-      switching_block switch (wi[i],wi[i+1],challenge[i+1],wi[i+1],inverter invert(count[i+1],wi[i+4]);
+      switching_block switch (wi[i],wi[i+1],challenge[i+1],wi[i+1]);
+      inverter invert(w2[i+1],w1[i+1],challenge[i+2],w1[i+2],w2[i+2]);
       bit_reverseal_block bit_reverse (wi[i+2],wi[i+3], challenge[i+3],wi[i+3]);
     end
   endgenerate
